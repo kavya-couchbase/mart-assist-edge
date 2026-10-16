@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Mart Assist</title>
+  <link rel="icon" href="/logomark.svg" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <meta name="theme-color" content="#EC1218" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <img src="/logomark.svg" alt="" width="32" height="32" />
+      <div>
+        <h1>Mart Assist</h1>
+        <p class="store">Store 14, basement floor</p>
+      </div>
+    </div>
+    <div class="status" aria-live="polite">
+      <div class="chip"><span class="k">Network</span><span id="net" class="v"></span></div>
+      <div class="chip"><span class="k">Sync</span><span id="sync" class="v"></span></div>
+      <label class="switch"><input type="checkbox" id="offlineToggle" /> <span>Simulate offline</span></label>
+    </div>
+  </header>
+
+  <div id="banner" class="banner" hidden></div>
+
+  <main>
+    <section id="setup" class="setup" hidden>
+      <h2>This device has no products yet</h2>
+      <p>Load the store catalogue onto this device. Each product is embedded locally, then synced to Capella.</p>
+      <button id="seedBtn" class="primary" type="button">Load catalogue</button>
+      <p class="muted">On a second device, skip this. Products arrive through sync.</p>
+    </section>
+
+    <form id="searchForm" class="search" role="search">
+      <label for="q" class="sr">What does the customer need?</label>
+      <input id="q" type="search" autocomplete="off" placeholder="What does the customer need?" />
+      <button class="primary" type="submit">Search</button>
+    </form>
+
+    <div class="controls">
+      <fieldset class="seg">
+        <legend class="sr">Search type</legend>
+        <label><input type="radio" name="mode" value="vector" checked /><span>Meaning</span></label>
+        <label><input type="radio" name="mode" value="keyword" /><span>Keyword</span></label>
+      </fieldset>
+      <div class="tries">
+        <button class="try" type="button">healthy breakfast for kids</button>
+        <button class="try" type="button">sugar-free sweets for a diabetic customer</button>
+        <button class="try" type="button">something for an upset stomach</button>
+        <button class="try" type="button">pav bhaji</button>
+      </div>
+    </div>
+
+    <p id="timing" class="timing"></p>
+    <div id="answer" class="answer" hidden></div>
+    <ul id="results" class="results"></ul>
+  </main>
+
+  <footer class="foot">
+    <span id="docs"></span>
+    <span id="pending" class="pending"></span>
+  </footer>
+
+  <dialog id="editor">
+    <form id="editForm" method="dialog">
+      <h2 id="e-name"></h2>
+      <div class="fields">
+        <label>Aisle <input id="e-aisle" type="number" min="1" max="30" required /></label>
+        <label>Stock <input id="e-stock" type="number" min="0" required /></label>
+      </div>
+      <div class="actions">
+        <button value="cancel" type="submit" class="ghost" formnovalidate>Cancel</button>
+        <button value="save" type="submit" class="primary">Save update</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" hidden></div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

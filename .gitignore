@@ -1,0 +1,7 @@
+node_modules
+dist
+.env.local
+.env.*.local
+*.zip
+.amplify-app-id
+.DS_Store

@@ -1,0 +1,3 @@
+{ "name": "Mart Assist", "short_name": "Mart Assist", "start_url": "/", "display": "standalone",
+  "background_color": "#FFFFFF", "theme_color": "#EC1218",
+  "icons": [{ "src": "/logomark.svg", "sizes": "any", "type": "image/svg+xml" }] }
